@@ -2,37 +2,42 @@ package ss01_introduction_java.practice;
 
 import java.util.Scanner;
 
-public class introduction_java_practice5 {
+public class introduction_java_practice6 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        byte month;
+        int year;
         do {
-            System.out.print("Enter a month: ");
-            month  = scanner.nextByte();
-            if (month<0 || month>10){
-                System.out.println("The month must be from 1 to 12");
+            System.out.print("Enter a year: ");
+            year = scanner.nextInt();
+            if (year < 0) {
+                System.out.println("The year must be greater than 0");
             }
-        } while (month<0 || month>10);
+        } while (year < 0);
 
-        switch (month){
-            case 1:
-            case 3:
-            case 5:
-            case 7:
-            case 8:
-            case 10:
-            case 12:
-                System.out.printf("Month %d has 31 days",month);
-                break;
-            case 2:
-                System.out.printf("Month %d has 28, 29 days",month);
-                break;
-            case 4:
-            case 6:
-            case 9:
-            case 11:
-                System.out.printf("Month %d has 30 days",month);
-                break;
+//        if (year % 400 == 0) {
+//            System.out.println(year + " is a leap year");
+//        } else {
+//            if (year % 100 == 0) {
+//                System.out.println(year + " is not a leap year");
+//            } else {
+//                if (year % 4 == 0) {
+//                    System.out.println(year + " is a leap year");
+//                } else {
+//                    System.out.println(year + " is not a leap year");
+//                }
+//            }
+//        }
+
+        if (year % 4 == 0) {
+            if (year % 400 == 0) {
+                System.out.println(year + " is a leap year");
+            } else if (year % 100 == 0) {
+                System.out.println(year + " is not a leap year");
+            } else {
+                System.out.println(year + " is a leap year");
+            }
+        } else {
+            System.out.println(year + " is not a leap year");
         }
     }
 }

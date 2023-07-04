@@ -2,18 +2,23 @@ package ss01_introduction_java.practice;
 
 import java.util.Scanner;
 
-public class introduction_java_practice3 {
+public class introduction_java_practice4 {
     public static void main(String[] args) {
-        double width,length;
         Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a: ");
+        double a  = scanner.nextDouble();
 
-        System.out.print("Enter length: ");
-        length = scanner.nextDouble();
+        System.out.print("Enter b: ");
+        double b = scanner.nextDouble();
 
-        System.out.print("Enter width: ");
-        width = scanner.nextDouble();
-
-        double area = length*width;
-        System.out.println("Area: "+area);
+        if (a==0){
+            if (b==0){
+                System.out.println("The equation has infinitely many solutions");
+            } else {
+                System.out.println("The equation has no solution");
+            }
+        } else {
+            System.out.println("Equation with solution x = "+(-b/a));
+        }
     }
 }

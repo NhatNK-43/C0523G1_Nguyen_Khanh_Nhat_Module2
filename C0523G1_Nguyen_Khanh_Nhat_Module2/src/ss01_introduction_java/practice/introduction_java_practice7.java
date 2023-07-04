@@ -2,42 +2,26 @@ package ss01_introduction_java.practice;
 
 import java.util.Scanner;
 
-public class introduction_java_practice6 {
+public class introduction_java_practice7 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int year;
-        do {
-            System.out.print("Enter a year: ");
-            year = scanner.nextInt();
-            if (year < 0) {
-                System.out.println("The year must be greater than 0");
-            }
-        } while (year < 0);
 
-//        if (year % 400 == 0) {
-//            System.out.println(year + " is a leap year");
-//        } else {
-//            if (year % 100 == 0) {
-//                System.out.println(year + " is not a leap year");
-//            } else {
-//                if (year % 4 == 0) {
-//                    System.out.println(year + " is a leap year");
-//                } else {
-//                    System.out.println(year + " is not a leap year");
-//                }
-//            }
-//        }
+        System.out.print("Enter weight (kg): ");
+        float weight = scanner.nextFloat();
 
-        if (year % 4 == 0) {
-            if (year % 400 == 0) {
-                System.out.println(year + " is a leap year");
-            } else if (year % 100 == 0) {
-                System.out.println(year + " is not a leap year");
-            } else {
-                System.out.println(year + " is a leap year");
-            }
+        System.out.print("Enter height (m): ");
+        float height = scanner.nextFloat();
+
+        float BMI = (float) (weight / Math.pow(height, 2));
+
+        if (BMI < 18.5) {
+            System.out.println("Underweight");
+        } else if (BMI < 25.0) {
+            System.out.println("Normal");
+        } else if (BMI < 30.0) {
+            System.out.println("Overweight");
         } else {
-            System.out.println(year + " is not a leap year");
+            System.out.println("Obese");
         }
     }
 }
