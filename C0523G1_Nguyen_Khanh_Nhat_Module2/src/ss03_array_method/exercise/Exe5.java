@@ -11,12 +11,12 @@ public class Exe4 {
         System.out.println("Array created:");
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[i].length; j++) {
-                System.out.print(arr[i][j]+"  ");
+                System.out.print(arr[i][j] + "  ");
             }
             System.out.println();
         }
 
-        System.out.printf("Max in array: %.2f\nPosition: [%d][%d]",maxArray(arr)[0],(int) maxArray(arr)[1],(int)maxArray(arr)[2]);
+        System.out.printf("Max in array: %.2f\nPosition: [%d][%d]", maxArray(arr)[0], (int) maxArray(arr)[1], (int) maxArray(arr)[2]);
     }
 
     static double[] maxArray(double[][] arr) {
