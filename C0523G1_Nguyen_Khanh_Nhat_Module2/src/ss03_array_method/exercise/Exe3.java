@@ -3,33 +3,29 @@ package ss03_array_method.exercise;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Exe2 {
+public class Exe3 {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int[] arr = {15, 6, 3, 8, 5};
-        System.out.println("Array created: " + Arrays.toString(arr));
-
-        int index;
-        do {
-            System.out.print("Enter the position to be insert: ");
-            index = scanner.nextInt();
-            if (index<0||index>arr.length){
-                System.out.println("0 <= index <= "+arr.length);
-            }
-        } while (index<0||index>arr.length);
-
-        System.out.print("Enter the value to be insert: ");
-        int number = scanner.nextInt();
-        System.out.println("Array after insert: " + Arrays.toString(insertElement(index, number, arr)));
+        int[] arr1 = new int[4];
+        int[] arr2 = new int[5];
+        enterArray(arr1);
+        enterArray(arr2);
+        System.out.println("Array 1 created: " + Arrays.toString(arr1));
+        System.out.println("Array 2 created: " + Arrays.toString(arr2));
+        System.out.println("Array after insert: " + Arrays.toString(mergeArray(arr1,arr2)));
     }
 
-    static int[] insertElement(int index, int number, int[] arr) {
-        int[] arrResult = new int[arr.length+1];
-        System.arraycopy(arr, 0, arrResult, 0, arr.length);
-        for (int i = arrResult.length-1; i > index; i--) {
-            arrResult[i]=arrResult[i-1];
+    static void enterArray(int [] arr){
+        Scanner sc = new Scanner(System.in);
+        for (int i = 0; i<arr.length;i++){
+            System.out.printf("Enter element %d: ",i+1);
+            arr[i]= sc.nextInt();
         }
-        arrResult[index]=number;
+    }
+
+    static int[] mergeArray(int[] arr1, int[] arr2) {
+        int[] arrResult = new int[arr1.length+arr2.length];
+        System.arraycopy(arr1, 0, arrResult, 0, arr1.length);
+        System.arraycopy(arr2,0,arrResult,arr1.length,arr2.length);
         return arrResult;
     }
 }

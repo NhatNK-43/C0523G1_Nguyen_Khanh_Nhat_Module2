@@ -1,17 +1,12 @@
 package ss02_loop.exercise;
 
-import java.util.Scanner;
 
-public class Exe2 {
+public class Exe3 {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the number of primes to print: ");
-        int numbers = scanner.nextInt();
-        int count = 0;
-        for (int i = 2; count < numbers; i++) {
+        System.out.println("Prime numbers less than 100: ");
+        for (int i = 2; i < 100; i++) {
             if (checkPrime(i)) {
-                System.out.println(i);
-                count++;
+                System.out.print(i + " ");
             }
         }
     }
