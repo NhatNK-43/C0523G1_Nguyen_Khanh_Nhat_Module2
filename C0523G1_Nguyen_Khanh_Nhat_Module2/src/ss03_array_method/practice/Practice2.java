@@ -1,36 +1,25 @@
 package ss03_array_method.practice;
 
 import java.util.Scanner;
-public class Practice1 {
+
+public class Practice2 {
     public static void main(String[] args) {
-        int size;
-        int[] array;
+        String[] students = {"Christian", "Michael", "Camila", "Sienna", "Tanya", "Connor", "Zachariah", "Mallory", "Zoe", "Emily"};
+
         Scanner scanner = new Scanner(System.in);
-        do {
-            System.out.print("Enter a size:");
-            size = scanner.nextInt();
-            if (size > 20)
-                System.out.println("Size does not exceed 20");
-        } while (size > 20);
-        array = new int[size];
-        int i = 0;
-        while (i < array.length) {
-            System.out.print("Enter element " + (i + 1) + ": ");
-            array[i] = scanner.nextInt();
-            i++;
+        System.out.print("Enter a name’s student:");
+        String input_name = scanner.nextLine();
+
+        boolean isExist = false;
+        for (int i = 0; i < students.length; i++) {
+            if (students[i].equals(input_name)) {
+                System.out.println("Position of the students in the list " + input_name + " is: " + i);
+                isExist = true;
+                break;
+            }
         }
-        System.out.printf("%-20s%s", "Elements in array: ", "");
-        for (int j = 0; j < array.length; j++) {
-            System.out.print(array[j] + "\t");
-        }
-        for (int j = 0; j < array.length / 2; j++) {
-            int temp = array[j];
-            array[j] = array[size - 1 - j];
-            array[size - 1 - j] = temp;
-        }
-        System.out.printf("\n%-20s%s", "Reverse array: ", "");
-        for (int j = 0; j < array.length; j++) {
-            System.out.print(array[j] + "\t");
+        if (!isExist) {
+            System.out.println("Not found" + input_name + " in the list.");
         }
     }
 }

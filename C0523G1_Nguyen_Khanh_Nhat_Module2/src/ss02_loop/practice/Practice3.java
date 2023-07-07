@@ -1,26 +1,32 @@
 package ss02_loop.practice;
 
 import java.util.Scanner;
-public class Practice2 {
+
+public class Practice3 {
     public static void main(String[] args) {
-        double money = 1.0;
-        int month = 1;
-        double interestRate = 1.0;
+        int a;
+        int b;
         Scanner input = new Scanner(System.in);
-        System.out.println("Enter investment amount: ");
-        money = input.nextDouble();
+        System.out.println("Enter a: ");
+        a = input.nextInt();
+        System.out.println("Enter b: ");
+        b = input.nextInt();
 
-        System.out.println("Enter number of months: ");
-        month = input.nextInt();
+        a = Math.abs(a);
+        b = Math.abs(b);
 
-        System.out.println("Enter annual interest rate in percentage: ");
-        interestRate = input.nextDouble();
-
-        double totalInterest = 0;
-        for(int i = 0; i < month; i++){
-            totalInterest += money * (interestRate/100)/12 * month;
+        if (a == 0 || b == 0) {
+            System.out.println("No greatest common factor");
         }
-        System.out.println("Total of interest: " + totalInterest);
+
+        while (a != b) {
+            if (a > b)
+                a = a - b;
+            else
+                b = b - a;
+        }
+
+        System.out.println("Greatest common factor: " + a);
     }
 
 }

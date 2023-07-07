@@ -1,8 +1,11 @@
-package ss04_oop.exercise;
+package ss04_oop.exercise.quadraticequation;
 
 public class QuadraticEquation {
     private double a, b, c;
 
+    public QuadraticEquation() {
+
+    }
     public QuadraticEquation(double a, double b, double c) {
         this.a = a;
         this.b = b;
@@ -55,7 +58,11 @@ public class QuadraticEquation {
 
     public void display() {
         if (getDiscriminant() > 0) {
-            System.out.printf("Phuong trinh co");
+            System.out.printf("The equation has two roots %f and %f\n",getRoot1(),getRoot2());
+        } else if (getDiscriminant()==0){
+            System.out.printf("The equation has two root %f\n",getRoot1());
+        } else {
+            System.out.println("The equation has no real roots");
         }
     }
 }

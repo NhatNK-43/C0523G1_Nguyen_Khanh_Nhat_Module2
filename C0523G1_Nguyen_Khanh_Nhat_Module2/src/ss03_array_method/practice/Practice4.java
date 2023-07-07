@@ -2,39 +2,47 @@ package ss03_array_method.practice;
 
 import java.util.Scanner;
 
-public class Practice3 {
+public class Practice4 {
     public static void main(String[] args) {
-        int size;
-        int[] array;
-        Scanner scanner = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
+        double fahrenheit;
+        double celsius;
+        int choice;
+
         do {
-            System.out.print("Enter a size:");
-            size = scanner.nextInt();
-            if (size > 20)
-                System.out.println("Size should not exceed 20");
-        } while (size > 20);
+            System.out.println("Menu.");
+            System.out.println("1. Fahrenheit to Celsius");
+            System.out.println("2. Celsius to Fahrenheit");
+            System.out.println("0. Exit");
+            System.out.println("Enter your choice: ");
+            choice = input.nextInt();
 
-        array = new int[size];
-        int i = 0;
-        while (i < array.length) {
-            System.out.print("Enter element" + (i + 1) + " : ");
-            array[i] = scanner.nextInt();
-            i++;
-        }
-
-        System.out.print("Property list: ");
-        for (int j = 0; j < array.length; j++) {
-            System.out.print(array[j] + "\t");
-        }
-
-        int max = array[0];
-        int index = 1;
-        for (int j = 0; j < array.length; j++) {
-            if (array[j] > max) {
-                max = array[j];
-                index = j + 1;
+            switch (choice) {
+                case 1: {
+                    System.out.println("Enter fahrenheit: ");
+                    fahrenheit = input.nextDouble();
+                    System.out.println("Fahrenheit to Celsius: " + fahrenheitToCelsius(fahrenheit));
+                    break;
+                }
+                case 2:{
+                    System.out.println("Enter Celsius: ");
+                    celsius = input.nextDouble();
+                    System.out.println("Celsius to Fahrenheit: " + celsiusToFahrenheit(celsius));
+                    break;
+                }
+                case 0:
+                    System.exit(0);
             }
-        }
-        System.out.println("\nThe largest property value in the list is " + max + " ,at position " + index);
+        } while (choice != 0);
+    }
+
+    public static double celsiusToFahrenheit(double celsius) {
+        double fahrenheit = (9.0 / 5) * celsius + 32;
+        return fahrenheit;
+    }
+
+    public static double fahrenheitToCelsius(double fahrenheit) {
+        double celsius = (5.0 / 9) * (fahrenheit - 32);
+        return celsius;
     }
 }

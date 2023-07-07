@@ -2,47 +2,39 @@ package ss03_array_method.practice;
 
 import java.util.Scanner;
 
-public class Practice4 {
+public class Practice5 {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        double fahrenheit;
-        double celsius;
-        int choice;
-
+        int size;
+        int[] array;
+        Scanner scanner = new Scanner(System.in);
         do {
-            System.out.println("Menu.");
-            System.out.println("1. Fahrenheit to Celsius");
-            System.out.println("2. Celsius to Fahrenheit");
-            System.out.println("0. Exit");
-            System.out.println("Enter your choice: ");
-            choice = input.nextInt();
+            System.out.print("Enter a size:");
+            size = scanner.nextInt();
+            if (size > 20)
+                System.out.println("Size should not exceed 20");
+        } while (size > 20);
 
-            switch (choice) {
-                case 1: {
-                    System.out.println("Enter fahrenheit: ");
-                    fahrenheit = input.nextDouble();
-                    System.out.println("Fahrenheit to Celsius: " + fahrenheitToCelsius(fahrenheit));
-                    break;
-                }
-                case 2:{
-                    System.out.println("Enter Celsius: ");
-                    celsius = input.nextDouble();
-                    System.out.println("Celsius to Fahrenheit: " + celsiusToFahrenheit(celsius));
-                    break;
-                }
-                case 0:
-                    System.exit(0);
+        array = new int[size];
+        int i = 0;
+        while (i < array.length) {
+            System.out.print("Enter element" + (i + 1) + " : ");
+            array[i] = scanner.nextInt();
+            i++;
+        }
+
+        System.out.print("Property list: ");
+        for (int k : array) {
+            System.out.print(k + "\t");
+        }
+
+        int min = array[0];
+        int index = 1;
+        for (int j = 0; j < array.length; j++) {
+            if (array[j] < min) {
+                min = array[j];
+                index = j + 1;
             }
-        } while (choice != 0);
-    }
-
-    public static double celsiusToFahrenheit(double celsius) {
-        double fahrenheit = (9.0 / 5) * celsius + 32;
-        return fahrenheit;
-    }
-
-    public static double fahrenheitToCelsius(double fahrenheit) {
-        double celsius = (5.0 / 9) * (fahrenheit - 32);
-        return celsius;
+        }
+        System.out.println("\nThe largest property value in the list is " + min + " ,at position " + index);
     }
 }
