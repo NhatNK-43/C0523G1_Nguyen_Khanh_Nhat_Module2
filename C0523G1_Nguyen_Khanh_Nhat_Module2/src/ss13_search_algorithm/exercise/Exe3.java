@@ -13,7 +13,6 @@ public class Exe3 {
 
     private static String result(String str) {
         String[] arrChar = str.split("");
-        System.out.println(arrChar.length);
         String result = "";
         int indexContinue = 0;
         for (int i = 0; i < arrChar.length; i = indexContinue) {
