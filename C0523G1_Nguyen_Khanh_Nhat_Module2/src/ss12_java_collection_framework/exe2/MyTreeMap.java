@@ -9,6 +9,7 @@ public class MyTreeMap {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String str = scanner.nextLine();
+
 //        String str = "Depending on the situation, we use the appropriate methods, " +
 //                "but usually we use the second structure public String[]" +
 //                " split(String regex), with regex as the sign that we need to split. " +

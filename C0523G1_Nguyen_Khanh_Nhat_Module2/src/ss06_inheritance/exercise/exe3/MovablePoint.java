@@ -1,11 +1,10 @@
 package ss06_inheritance.exercise.exe3;
 
 public class MovablePoint extends Point {
-    private float xSpeed;
-    private float ySpeed;
+    private float xSpeed = 0.0f;
+    private float ySpeed = 0.0f;
 
     public MovablePoint() {
-        this(0.0f, 0.0f);
     }
 
     public MovablePoint(float xSpeed, float ySpeed) {
@@ -20,7 +19,7 @@ public class MovablePoint extends Point {
     }
 
     public float getXSpeed() {
-        return xSpeed;
+        return this.xSpeed;
     }
 
     public void setXSpeed(float xSpeed) {
@@ -28,7 +27,8 @@ public class MovablePoint extends Point {
     }
 
     public float getYSpeed() {
-        return ySpeed;
+
+        return this.ySpeed;
     }
 
     public void setYSpeed(float ySpeed) {
@@ -45,12 +45,12 @@ public class MovablePoint extends Point {
     }
 
     public String toString() {
-        return "Point(x,y),speed = (" + getSpeed()[0] + ", " + getSpeed()[1] + ")";
+        return "Point(x,y),speed = (" + super.getX() + ", " + super.getY() + ")";
     }
 
     public MovablePoint move() {
-        setX(getX()+getXSpeed());
-        setY(getY()+getYSpeed());
+        setX(getX() + getXSpeed());
+        setY(getY() + getYSpeed());
         return this;
     }
 

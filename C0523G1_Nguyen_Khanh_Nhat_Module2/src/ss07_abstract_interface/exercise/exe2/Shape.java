@@ -1,5 +1,5 @@
-package ss07_abstract_interface.exercise.exe1;
+package ss07_abstract_interface.exercise.exe2;
 
-public abstract class Shape implements Resizeable{
+public class Shape{
 
 }

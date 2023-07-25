@@ -1,7 +1,8 @@
 package ss06_inheritance.exercise.exe3;
 
 public class Point {
-    private float x,y;
+    private float x;
+    private float y;
 
     public Point(){
         this(0.0f,0.0f);

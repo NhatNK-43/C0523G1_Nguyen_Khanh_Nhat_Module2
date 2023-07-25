@@ -1,17 +1,20 @@
-package ss06_inheritance.practice;
+package ss07_abstract_interface.exercise.exe1;
 
 public class Main {
     public static void main(String[] args) {
-        Shape shape = new Shape();
-        System.out.println(shape);
+        Shape[] shapes = new Shape[3];
+        shapes[0] = new Circle(6.0);
+        shapes[1] = new Rectangle(5.2,6.1);
+        shapes[2] = new Square(5.1);
 
-        Circle circle = new Circle();
-        System.out.println(circle);
+        for (Shape shape:shapes){
+            System.out.println(shape);
+            shape.resize(Math.round(Math.random()*100));
+        }
 
-        Rectangle rectangle = new Rectangle();
-        System.out.println(rectangle);
-
-        Square square = new Square();
-        System.out.println(square);
+        System.out.println("\n");
+        for (Shape shape:shapes){
+            System.out.println(shape);
+        }
     }
 }

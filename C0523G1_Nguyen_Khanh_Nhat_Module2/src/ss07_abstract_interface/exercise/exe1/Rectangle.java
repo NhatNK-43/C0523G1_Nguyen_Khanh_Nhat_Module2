@@ -1,6 +1,6 @@
-package ss06_inheritance.practice;
+package ss07_abstract_interface.exercise.exe1;
 
-public class Rectangle extends Shape {
+public class Rectangle extends Shape{
     private double width;
     private double length;
 
@@ -9,12 +9,6 @@ public class Rectangle extends Shape {
     }
 
     public Rectangle(double width, double length) {
-        this.width = width;
-        this.length = length;
-    }
-
-    public Rectangle(String color, boolean filled, double width, double length) {
-        super(color, filled);
         this.width = width;
         this.length = length;
     }
@@ -35,17 +29,21 @@ public class Rectangle extends Shape {
         this.length = length;
     }
 
-    public double getArea() {
-        return width * length;
+    public double getArea(){
+        return width*length;
     }
-
-    public double getPerimeter() {
-        return (width + length) * 2;
-    }
-
+    @Override
     public String toString() {
-        return "A Rectangle with width = " + getWidth() +
-                " and length = " + getLength() +
-                ", which is a subclass of " + super.toString();
+        return "Rectangle{" +
+                "width=" + width +
+                ", length=" + length +
+                ", area="+getArea()+
+                '}';
+    }
+
+    @Override
+    public void resize(double percent) {
+        setWidth(getWidth()+getWidth()*percent/100);
+        setLength(getLength()+getLength()*percent/100);
     }
 }

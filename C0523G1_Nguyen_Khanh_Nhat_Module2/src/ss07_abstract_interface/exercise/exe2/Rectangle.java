@@ -1,6 +1,6 @@
-package ss07_abstract_interface.exercise.exe1;
+package ss07_abstract_interface.exercise.exe2;
 
-public class Rectangle extends Shape{
+public class Rectangle extends Shape {
     private double width;
     private double length;
 
@@ -39,11 +39,5 @@ public class Rectangle extends Shape{
                 ", length=" + length +
                 ", area="+getArea()+
                 '}';
-    }
-
-    @Override
-    public void resize(double percent) {
-        setWidth(getWidth()*percent/100);
-        setLength(getLength()*percent/100);
     }
 }

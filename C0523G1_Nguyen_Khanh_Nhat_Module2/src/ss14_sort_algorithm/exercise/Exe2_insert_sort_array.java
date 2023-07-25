@@ -1,9 +1,10 @@
 package ss14_sort_algorithm.exercise;
 
+import java.io.IOException;
 import java.util.Arrays;
 
 public class Exe2_insert_sort_array {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         int[] list = {32, 51, 43, 2, 68, 12, 58, 79, 65, 35, 4, 81, 32};
         System.out.println("Array created: " + Arrays.toString(list));
         System.out.println("Length: " + list.length);
@@ -14,10 +15,7 @@ public class Exe2_insert_sort_array {
         for (int i = 1; i < list.length; i++) {
             int j;
             int temp = list[i];
-            for (j = i - 1; j >= 0; j--) {
-                if (list[j] < temp) {
-                    break;
-                }
+            for (j = i - 1; j >= 0 && list[j] > temp; j--) {
                 list[j + 1] = list[j];
             }
             list[j + 1] = temp;

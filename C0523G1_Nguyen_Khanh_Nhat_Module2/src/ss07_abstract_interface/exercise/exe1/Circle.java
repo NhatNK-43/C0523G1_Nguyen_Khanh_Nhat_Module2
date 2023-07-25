@@ -1,6 +1,6 @@
-package ss06_inheritance.practice;
+package ss07_abstract_interface.exercise.exe1;
 
-public class Circle extends Shape {
+public class Circle extends Shape{
     private double radius;
 
     public Circle(){
@@ -9,12 +9,6 @@ public class Circle extends Shape {
     public Circle(double radius) {
         this.radius = radius;
     }
-
-    public Circle(String color, boolean filled, double radius) {
-        super(color, filled);
-        this.radius = radius;
-    }
-
     public double getRadius() {
         return radius;
     }
@@ -26,13 +20,16 @@ public class Circle extends Shape {
     public double getArea(){
         return Math.PI*radius*radius;
     }
-
-    public double getPerimeter(){
-        return 2*Math.PI*radius;
+    @Override
+    public String toString() {
+        return "Circle{" +
+                "radius=" + radius +
+                ", area="+getArea()+
+                '}';
     }
 
-    public String toString(){
-        return "A circle with radius  = "+getRadius()+", which is a subclass of "+
-                super.toString();
+    @Override
+    public void resize(double percent) {
+        setRadius(getRadius()+getRadius()*percent/100);
     }
 }

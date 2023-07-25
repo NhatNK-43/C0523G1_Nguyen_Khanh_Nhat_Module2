@@ -1,38 +1,35 @@
-package ss06_inheritance.practice;
+package ss07_abstract_interface.exercise.exe1;
 
-public class Square extends Rectangle{
-
-    public Square(){
+public class Square extends Shape{
+    private double side;
+    public Square() {
     }
 
-    public Square(double side){
-        super(side,side);
-    }
-
-    public Square(double side, String color, boolean filled){
-        super(color,filled,side,side);
+    public Square(double side) {
+        this.side=side;
     }
 
     public double getSide() {
-        return getWidth();
+        return side;
     }
 
     public void setSide(double side) {
-        setWidth(side);
-        setLength(side);
+        this.side = side;
     }
 
-    public void setWidth(double width){
-        setSide(width);
+    public double getArea(){
+        return side*side;
     }
 
-    public void setLength(double length){
-        setSide(length);
+    @Override
+    public String toString() {
+        return "Square{" +
+                "side=" + side +
+                ", area="+getArea()+
+                '}';
     }
 
-    public String toString(){
-        return "A Square with side "+getSide()+
-                ", which a subclass of "+super.toString();
+    public void resize(double percent) {
+        setSide(getSide()+getSide() * percent / 100);
     }
-
 }

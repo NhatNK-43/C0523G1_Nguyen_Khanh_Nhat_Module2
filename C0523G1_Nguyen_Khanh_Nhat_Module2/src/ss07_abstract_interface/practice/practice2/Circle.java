@@ -1,10 +1,12 @@
-package ss06_inheritance.exercise.exe1;
+package ss07_abstract_interface.practice.practice2;
 
 public class Circle {
     private double radius;
     private String color;
-
     public Circle() {
+        this(1.0);
+    }
+    public Circle(double radius) {
         this(1.0, "blue");
     }
 
@@ -33,7 +35,11 @@ public class Circle {
         return Math.PI * radius * radius;
     }
 
+    @Override
     public String toString() {
-        return "A circle with radius  = " + getRadius() + ", area = " + getArea();
+        return "Circle{" +
+                "radius=" + radius +
+                ", color='" + color + '\'' +
+                '}';
     }
 }

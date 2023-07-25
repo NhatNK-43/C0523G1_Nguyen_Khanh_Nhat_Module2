@@ -19,17 +19,18 @@ public class Palindrome {
             stringStack.push(w);
         }
 
-        int count = 0;
+        boolean isPalindrome = true;
         while (stringQueue.size()>0){
             if(!stringQueue.poll().equals(stringStack.pop())){
-                count++;
+                isPalindrome = false;
                 break;
             }
         }
-        if (count>0){
-            System.out.println("The string not is Palindrome ");
-        } else {
+
+        if (isPalindrome){
             System.out.println("The string is Palindrome ");
+        } else {
+            System.out.println("The string is not Palindrome ");
         }
     }
 }

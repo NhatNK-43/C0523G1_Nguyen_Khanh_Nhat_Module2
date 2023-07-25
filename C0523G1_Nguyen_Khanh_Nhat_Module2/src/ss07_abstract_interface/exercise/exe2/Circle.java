@@ -1,6 +1,6 @@
-package ss07_abstract_interface.exercise.exe1;
+package ss07_abstract_interface.exercise.exe2;
 
-public class Circle extends Shape implements Resizeable{
+public class Circle extends Shape{
     private double radius;
 
     public Circle(){
@@ -26,10 +26,5 @@ public class Circle extends Shape implements Resizeable{
                 "radius=" + radius +
                 ", area="+getArea()+
                 '}';
-    }
-
-    @Override
-    public void resize(double percent) {
-        setRadius(getRadius()*percent/100);
     }
 }

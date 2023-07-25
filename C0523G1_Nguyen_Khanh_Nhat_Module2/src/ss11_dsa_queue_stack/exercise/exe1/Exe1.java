@@ -26,8 +26,6 @@ public class Exe1 {
         }
 
         System.out.println(integerList);
-
-
         Stack<String> wStack = new Stack<>();
         System.out.print("Enter a String: ");
         String str = scanner.nextLine();
@@ -40,7 +38,7 @@ public class Exe1 {
 
         String result = "";
         while (wStack.size() > 0) {
-            result += wStack.pop()+" ";
+            result += wStack.pop() + " ";
         }
 
         System.out.println(result);

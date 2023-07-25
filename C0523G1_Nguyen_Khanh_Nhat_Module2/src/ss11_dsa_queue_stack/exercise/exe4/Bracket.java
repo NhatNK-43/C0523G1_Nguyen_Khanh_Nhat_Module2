@@ -1,7 +1,5 @@
 package ss11_dsa_queue_stack.exercise.exe4;
 
-import jdk.nashorn.internal.objects.annotations.Function;
-
 import java.util.Objects;
 import java.util.Stack;
 
