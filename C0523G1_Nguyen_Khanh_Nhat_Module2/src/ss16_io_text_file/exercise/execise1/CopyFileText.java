@@ -29,7 +29,6 @@ public class CopyFileText {
     }
 
     public void writeFile(String pathRead, String pathWrite) {
-
         try {
             File file = new File(pathWrite);
 

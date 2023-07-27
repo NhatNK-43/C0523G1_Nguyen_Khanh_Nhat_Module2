@@ -1,6 +1,5 @@
 package ss16_io_text_file.exercise.execise1;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
