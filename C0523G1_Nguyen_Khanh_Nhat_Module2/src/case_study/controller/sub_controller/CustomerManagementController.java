@@ -1,9 +1,12 @@
 package case_study.controller.sub_controller;
 
-import static case_study.controller.FuramaController.checkSelection;
+import case_study.common.Validate;
+import case_study.service.sub_service.ICustomerService;
+import case_study.service.sub_service.impl.CustomerService;
 
 public class CustomerManagementController {
     public static void customerManagement(){
+        ICustomerService customerService = new CustomerService();
         int selectCustomer;
         do {
             System.out.println();
@@ -15,10 +18,23 @@ public class CustomerManagementController {
             System.out.println("5. Search by name customer");
             System.out.println("6. Return main menu");
             System.out.print("Enter your selection: ");
-            selectCustomer = checkSelection(6);
+            selectCustomer = Validate.checkSelection(6);
 
             switch (selectCustomer){
                 case 1:
+                    customerService.findAll();
+                    break;
+                case 2:
+                    customerService.add();
+                    break;
+                case 3:
+                    customerService.edit();
+                    break;
+                case 4:
+                    customerService.delete();
+                    break;
+                case 5:
+                    customerService.search();
                     break;
                 case 6:
                     break;

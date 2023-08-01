@@ -1,9 +1,10 @@
 package case_study.view;
 
-import static case_study.controller.FuramaController.displayMainMenu;
+
+import case_study.controller.FuramaController;
 
 public class View {
     public static void main(String[] args) {
-        displayMainMenu();
+        FuramaController.displayMainMenu();
     }
 }

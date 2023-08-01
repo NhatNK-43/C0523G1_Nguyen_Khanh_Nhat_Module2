@@ -1,4 +1,4 @@
-package case_study.model.Facility;
+package case_study.model.facility;
 
 public abstract class Facility {
     private String serviceID;

@@ -1,8 +1,7 @@
-package case_study.model.Facility;
+package case_study.model.facility;
 
-public class Villa extends Facility {
+public class House extends Facility{
     private String roomStandard;
-    private double poolArea;
     private int numberOfFloor;
 
     public String getRoomStandard() {
@@ -13,14 +12,6 @@ public class Villa extends Facility {
         this.roomStandard = roomStandard;
     }
 
-    public double getPoolArea() {
-        return poolArea;
-    }
-
-    public void setPoolArea(double poolArea) {
-        this.poolArea = poolArea;
-    }
-
     public int getNumberOfFloor() {
         return numberOfFloor;
     }
@@ -29,24 +20,21 @@ public class Villa extends Facility {
         this.numberOfFloor = numberOfFloor;
     }
 
-    public Villa(String roomStandard, double poolArea, int numberOfFloor) {
+    public House(String roomStandard, int numberOfFloor) {
         this.roomStandard = roomStandard;
-        this.poolArea = poolArea;
         this.numberOfFloor = numberOfFloor;
     }
 
-    public Villa(String serviceID, String serviceName, String usableArea, String rentalCost, String maximumPerson, String rentalType, String roomStandard, double poolArea, int numberOfFloor) {
+    public House(String serviceID, String serviceName, String usableArea, String rentalCost, String maximumPerson, String rentalType, String roomStandard, int numberOfFloor) {
         super(serviceID, serviceName, usableArea, rentalCost, maximumPerson, rentalType);
         this.roomStandard = roomStandard;
-        this.poolArea = poolArea;
         this.numberOfFloor = numberOfFloor;
     }
 
     @Override
     public String toString() {
-        return "Villa{" +
+        return "House{" +
                 "roomStandard='" + roomStandard + '\'' +
-                ", poolArea=" + poolArea +
                 ", numberOfFloor=" + numberOfFloor +
                 '}';
     }

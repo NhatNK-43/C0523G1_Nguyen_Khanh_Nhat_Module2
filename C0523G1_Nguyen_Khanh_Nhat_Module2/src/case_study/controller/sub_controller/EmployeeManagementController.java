@@ -1,13 +1,12 @@
 package case_study.controller.sub_controller;
 
-import case_study.service.sub_service.IEmployeeService;
+import case_study.common.Validate;
 import case_study.service.sub_service.impl.EmployeeService;
 
-import static case_study.controller.FuramaController.checkSelection;
 
 public class EmployeeManagementController {
     public static void employeeManagement(){
-        IEmployeeService employeeService = new EmployeeService();
+        EmployeeService employeeService = new EmployeeService();
         int selectEmployee;
         do {
             System.out.println();
@@ -19,11 +18,23 @@ public class EmployeeManagementController {
             System.out.println("5. Search by name employee");
             System.out.println("6. Return main menu");
             System.out.print("Enter your selection: ");
-            selectEmployee = checkSelection(6);
+            selectEmployee = Validate.checkSelection(6);
 
             switch (selectEmployee){
                 case 1:
-                    employeeService.displayEmp();
+                    employeeService.findAll();
+                    break;
+                case 2:
+                    employeeService.add();
+                    break;
+                case 3:
+                    employeeService.edit();
+                    break;
+                case 4:
+                    employeeService.delete();
+                    break;
+                case 5:
+                    employeeService.search();
                     break;
                 case 6:
                     break;

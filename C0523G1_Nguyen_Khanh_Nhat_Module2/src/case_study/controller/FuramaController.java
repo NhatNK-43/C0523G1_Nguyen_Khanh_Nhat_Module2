@@ -1,6 +1,7 @@
 package case_study.controller;
 
-import java.util.Scanner;
+import case_study.common.Validate;
+
 
 import static case_study.controller.sub_controller.BookingManagementController.bookingManagement;
 import static case_study.controller.sub_controller.CustomerManagementController.customerManagement;
@@ -20,7 +21,7 @@ public class FuramaController {
             System.out.println("5. Promotion Management");
             System.out.println("6. Exit");
             System.out.print("Enter your selection: ");
-            select = checkSelection(6);
+            select = Validate.checkSelection(6);
 
             switch (select) {
                 case 1:
@@ -42,28 +43,5 @@ public class FuramaController {
                     System.exit(0);
             }
         } while (true);
-    }
-
-    public static int checkSelection(int maxSelect) {
-        Scanner scanner = new Scanner(System.in);
-        int select = 0;
-        boolean checkSelection;
-        do {
-            checkSelection = false;
-            try {
-                select = Integer.parseInt(scanner.nextLine());
-                if (select < 1 || select > maxSelect) {
-                    checkSelection = true;
-                }
-            } catch (NumberFormatException e) {
-                checkSelection = true;
-            }
-            if (checkSelection) {
-                System.out.print("Invalid selection. Please re-enter: ");
-            } else {
-                break;
-            }
-        } while (true);
-        return select;
     }
 }

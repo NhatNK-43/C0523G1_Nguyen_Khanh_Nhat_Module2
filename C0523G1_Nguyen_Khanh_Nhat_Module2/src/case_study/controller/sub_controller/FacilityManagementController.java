@@ -1,6 +1,7 @@
 package case_study.controller.sub_controller;
 
-import static case_study.controller.FuramaController.checkSelection;
+import case_study.common.Validate;
+
 
 public class FacilityManagementController {
     public static void facilityManagement(){
@@ -14,7 +15,7 @@ public class FacilityManagementController {
             System.out.println("4. Delete facility");
             System.out.println("5. Return main menu");
             System.out.print("Enter your selection: ");
-            selectFacility = checkSelection(5);
+            selectFacility = Validate.checkSelection(5);
 
             switch (selectFacility){
                 case 1:

@@ -1,29 +1,29 @@
-package case_study.model.Facility;
+package case_study.model.facility;
 
 public class Room extends Facility {
-    private String FreeServiceIncluded;
+    private String freeServiceIncluded;
 
     public String getFreeServiceIncluded() {
-        return FreeServiceIncluded;
+        return freeServiceIncluded;
     }
 
     public void setFreeServiceIncluded(String freeServiceIncluded) {
-        FreeServiceIncluded = freeServiceIncluded;
+        freeServiceIncluded = freeServiceIncluded;
     }
 
     public Room(String freeServiceIncluded) {
-        FreeServiceIncluded = freeServiceIncluded;
+        freeServiceIncluded = freeServiceIncluded;
     }
 
     public Room(String serviceID, String serviceName, String usableArea, String rentalCost, String maximumPerson, String rentalType, String freeServiceIncluded) {
         super(serviceID, serviceName, usableArea, rentalCost, maximumPerson, rentalType);
-        FreeServiceIncluded = freeServiceIncluded;
+        freeServiceIncluded = freeServiceIncluded;
     }
 
     @Override
     public String toString() {
         return "Room{" +
-                "FreeServiceIncluded='" + FreeServiceIncluded + '\'' +
+                "freeServiceIncluded='" + freeServiceIncluded + '\'' +
                 '}';
     }
 }
