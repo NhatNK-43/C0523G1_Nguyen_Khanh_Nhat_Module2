@@ -1,6 +1,6 @@
 package case_study.service.sub_service.impl;
 
-import case_study.common.Validate;
+import case_study.common.InputAndCheckPerson;
 import case_study.model.person.Customer;
 import case_study.repository.sub_repository.ICustomerRepository;
 import case_study.repository.sub_repository.repository_impl.CustomerRepository;
@@ -34,7 +34,7 @@ public class CustomerService implements ICustomerService {
         String id;
         do {
             id = scanner.nextLine();
-            if (!Validate.checkId(id, REGEX_ID)) {
+            if (!InputAndCheckPerson.inputAndCheckId(id, REGEX_ID)) {
                 System.out.print("The ID is invalid! Please re-enter (NV-XXXX): ");
             } else {
                 if (customerList.contains(new Customer(id))) {
@@ -45,14 +45,14 @@ public class CustomerService implements ICustomerService {
             }
         } while (true);
 
-        String name = Validate.checkName();
-        LocalDate date = Validate.checkDate();
-        String gender = Validate.checkGender();
-        String idCard = Validate.checkIdCard();
-        String phoneNumber = Validate.checkPhoneNumber();
-        String email = Validate.checkEmail();
-        String customerType = Validate.checkCustomerType();
-        String address = Validate.checkAddress();
+        String name = InputAndCheckPerson.inputAndCheckName();
+        LocalDate date = InputAndCheckPerson.inputAndCheckDate();
+        String gender = InputAndCheckPerson.inputAndCheckGender();
+        String idCard = InputAndCheckPerson.inputAndCheckIdCard();
+        String phoneNumber = InputAndCheckPerson.inputAndCheckPhoneNumber();
+        String email = InputAndCheckPerson.inputAndCheckEmail();
+        String customerType = InputAndCheckPerson.inputAndCheckCustomerType();
+        String address = InputAndCheckPerson.inputAndCheckAddress();
 
         Customer customer = new Customer(id, name, date, gender, idCard,
                 phoneNumber, email, customerType, address);
@@ -69,7 +69,7 @@ public class CustomerService implements ICustomerService {
         String id;
         do {
             id = scanner.nextLine();
-            if (!Validate.checkId(id, REGEX_ID)) {
+            if (!InputAndCheckPerson.inputAndCheckId(id, REGEX_ID)) {
                 System.out.print("The ID is invalid! Please re-enter (NV-XXXX): ");
             } else {
                 if (customerList.contains(new Customer(id))) {
@@ -93,39 +93,39 @@ public class CustomerService implements ICustomerService {
             System.out.println("8. Edit address");
             System.out.println("9. Exit");
             System.out.print("Enter your selection: ");
-            select = Validate.checkSelection(9);
+            select = InputAndCheckPerson.checkSelection(9);
 
             int index = customerList.indexOf(new Customer(id));
             Customer customer = customerList.get(index);
             switch (select) {
                 case 1:
-                    customer.setName(Validate.checkName());
+                    customer.setName(InputAndCheckPerson.inputAndCheckName());
                     break;
                 case 2:
-                    customer.setDate(Validate.checkDate());
+                    customer.setDate(InputAndCheckPerson.inputAndCheckDate());
                     break;
                 case 3:
-                    customer.setGender(Validate.checkGender());
+                    customer.setGender(InputAndCheckPerson.inputAndCheckGender());
                     break;
                 case 4:
-                    customer.setIdCard(Validate.checkIdCard());
+                    customer.setIdCard(InputAndCheckPerson.inputAndCheckIdCard());
                     break;
                 case 5:
-                    customer.setPhoneNumber(Validate.checkPhoneNumber());
+                    customer.setPhoneNumber(InputAndCheckPerson.inputAndCheckPhoneNumber());
                     break;
                 case 6:
-                    customer.setEmail(Validate.checkEmail());
+                    customer.setEmail(InputAndCheckPerson.inputAndCheckEmail());
                     break;
                 case 7:
-                    customer.setCustomerType(Validate.checkCustomerType());
+                    customer.setCustomerType(InputAndCheckPerson.inputAndCheckCustomerType());
                     break;
                 case 8:
-                    customer.setAddress(Validate.checkAddress());
+                    customer.setAddress(InputAndCheckPerson.inputAndCheckAddress());
                     break;
                 case 9:
                     System.out.println("Do you want to save the changes?\n\t1. Yes\t 2. No");
                     System.out.print("Enter your selection: ");
-                    int selectYN = Validate.checkSelection(2);
+                    int selectYN = InputAndCheckPerson.checkSelection(2);
                     switch (selectYN) {
                         case 1:
                             customerRepository.edit(id, customerList, customer);
@@ -145,7 +145,7 @@ public class CustomerService implements ICustomerService {
         String id;
         do {
             id = scanner.nextLine();
-            if (!Validate.checkId(id, REGEX_ID)) {
+            if (!InputAndCheckPerson.inputAndCheckId(id, REGEX_ID)) {
                 System.out.print("The ID is invalid! Please re-enter (NV-XXXX): ");
             } else {
                 if (customerList.contains(new Customer(id))) {
@@ -165,13 +165,9 @@ public class CustomerService implements ICustomerService {
         System.out.print("Enter name you want to search: ");
         String name = scanner.nextLine();
         List<Customer> customers = customerRepository.search(name, customerList);
-        if (customers.size() == 0) {
-            System.out.println("Not found customer with the name: " + name);
-        } else {
-            System.out.println("List of customer with the name: " + name);
-            for (Customer customer : customers) {
-                System.out.println(customer);
-            }
+        System.out.println("Search list with the name: " + name);
+        for (Customer customer : customers) {
+            System.out.println(customer);
         }
     }
 }

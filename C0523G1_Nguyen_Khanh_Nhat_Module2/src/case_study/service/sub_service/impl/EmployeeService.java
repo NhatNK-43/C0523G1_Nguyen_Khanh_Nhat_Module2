@@ -1,7 +1,6 @@
 package case_study.service.sub_service.impl;
 
-import case_study.common.Validate;
-import case_study.model.person.Customer;
+import case_study.common.InputAndCheckPerson;
 import case_study.model.person.Employee;
 import case_study.repository.sub_repository.IEmployeeRepository;
 import case_study.repository.sub_repository.repository_impl.EmployeeRepository;
@@ -36,7 +35,7 @@ public class EmployeeService implements IEmployeeService {
         String id;
         do {
             id = scanner.nextLine();
-            if (!Validate.checkId(id, REGEX_ID)) {
+            if (!InputAndCheckPerson.inputAndCheckId(id, REGEX_ID)) {
                 System.out.print("The ID is invalid! Please re-enter (NV-XXXX): ");
             } else {
                 if (employeeList.contains(new Employee(id))) {
@@ -47,15 +46,15 @@ public class EmployeeService implements IEmployeeService {
             }
         } while (true);
 
-        String name = Validate.checkName();
-        LocalDate date = Validate.checkDate();
-        String gender = Validate.checkGender();
-        String idCard = Validate.checkIdCard();
-        String phoneNumber = Validate.checkPhoneNumber();
-        String email = Validate.checkEmail();
-        String literacy = Validate.checkLiteracy();
-        String position = Validate.checkPosition();
-        Double salary = Validate.checkSalary();
+        String name = InputAndCheckPerson.inputAndCheckName();
+        LocalDate date = InputAndCheckPerson.inputAndCheckDate();
+        String gender = InputAndCheckPerson.inputAndCheckGender();
+        String idCard = InputAndCheckPerson.inputAndCheckIdCard();
+        String phoneNumber = InputAndCheckPerson.inputAndCheckPhoneNumber();
+        String email = InputAndCheckPerson.inputAndCheckEmail();
+        String literacy = InputAndCheckPerson.inputAndCheckLiteracy();
+        String position = InputAndCheckPerson.inputAndCheckPosition();
+        Double salary = InputAndCheckPerson.inputAndCheckSalary();
 
         Employee employee = new Employee(id, name, date, gender, idCard,
                 phoneNumber, email, literacy, position, salary);
@@ -72,7 +71,7 @@ public class EmployeeService implements IEmployeeService {
         String id;
         do {
             id = scanner.nextLine();
-            if (!Validate.checkId(id, REGEX_ID)) {
+            if (!InputAndCheckPerson.inputAndCheckId(id, REGEX_ID)) {
                 System.out.print("The ID is invalid! Please re-enter (NV-XXXX): ");
             } else {
                 if (employeeList.contains(new Employee(id))) {
@@ -97,42 +96,42 @@ public class EmployeeService implements IEmployeeService {
             System.out.println("9. Edit salary");
             System.out.println("10. Exit");
             System.out.print("Enter your selection: ");
-            select = Validate.checkSelection(10);
+            select = InputAndCheckPerson.checkSelection(10);
 
             int index = employeeList.indexOf(new Employee(id));
             Employee employee = employeeList.get(index);
             switch (select) {
                 case 1:
-                    employee.setName(Validate.checkName());
+                    employee.setName(InputAndCheckPerson.inputAndCheckName());
                     break;
                 case 2:
-                    employee.setDate(Validate.checkDate());
+                    employee.setDate(InputAndCheckPerson.inputAndCheckDate());
                     break;
                 case 3:
-                    employee.setGender(Validate.checkGender());
+                    employee.setGender(InputAndCheckPerson.inputAndCheckGender());
                     break;
                 case 4:
-                    employee.setIdCard(Validate.checkIdCard());
+                    employee.setIdCard(InputAndCheckPerson.inputAndCheckIdCard());
                     break;
                 case 5:
-                    employee.setPhoneNumber(Validate.checkPhoneNumber());
+                    employee.setPhoneNumber(InputAndCheckPerson.inputAndCheckPhoneNumber());
                     break;
                 case 6:
-                    employee.setEmail(Validate.checkEmail());
+                    employee.setEmail(InputAndCheckPerson.inputAndCheckEmail());
                     break;
                 case 7:
-                    employee.setLiteracy(Validate.checkLiteracy());
+                    employee.setLiteracy(InputAndCheckPerson.inputAndCheckLiteracy());
                     break;
                 case 8:
-                    employee.setPosition(Validate.checkPosition());
+                    employee.setPosition(InputAndCheckPerson.inputAndCheckPosition());
                     break;
                 case 9:
-                    employee.setSalary(Validate.checkSalary());
+                    employee.setSalary(InputAndCheckPerson.inputAndCheckSalary());
                     break;
                 case 10:
                     System.out.println("Do you want to save the changes?\n\t1. Yes\t 2. No");
                     System.out.print("Enter your selection: ");
-                    int selectYN = Validate.checkSelection(2);
+                    int selectYN = InputAndCheckPerson.checkSelection(2);
                     switch (selectYN) {
                         case 1:
                             employeeRepository.edit(id, employeeList, employee);
@@ -152,7 +151,7 @@ public class EmployeeService implements IEmployeeService {
         String id;
         do {
             id = scanner.nextLine();
-            if (!Validate.checkId(id, REGEX_ID)) {
+            if (!InputAndCheckPerson.inputAndCheckId(id, REGEX_ID)) {
                 System.out.print("The ID is invalid! Please re-enter (NV-XXXX): ");
             } else {
                 if (employeeList.contains(new Employee(id))) {

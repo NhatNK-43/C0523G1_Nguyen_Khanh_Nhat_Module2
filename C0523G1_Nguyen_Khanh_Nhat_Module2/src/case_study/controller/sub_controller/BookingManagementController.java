@@ -1,6 +1,6 @@
 package case_study.controller.sub_controller;
 
-import case_study.common.Validate;
+import case_study.common.InputAndCheckPerson;
 
 public class BookingManagementController {
     public static void bookingManagement(){
@@ -15,7 +15,7 @@ public class BookingManagementController {
             System.out.println("5. Edit contracts");
             System.out.println("6. Return main menu");
             System.out.print("Enter your selection: ");
-            selectBooking = Validate.checkSelection(6);
+            selectBooking = InputAndCheckPerson.checkSelection(6);
 
             switch (selectBooking){
                 case 1:

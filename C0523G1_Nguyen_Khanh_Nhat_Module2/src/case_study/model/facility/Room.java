@@ -7,23 +7,20 @@ public class Room extends Facility {
         return freeServiceIncluded;
     }
 
-    public void setFreeServiceIncluded(String freeServiceIncluded) {
-        freeServiceIncluded = freeServiceIncluded;
-    }
 
     public Room(String freeServiceIncluded) {
         freeServiceIncluded = freeServiceIncluded;
     }
 
-    public Room(String serviceID, String serviceName, String usableArea, String rentalCost, String maximumPerson, String rentalType, String freeServiceIncluded) {
+    public Room(String serviceID, String serviceName, double usableArea, double rentalCost, int maximumPerson, String rentalType, String freeServiceIncluded) {
         super(serviceID, serviceName, usableArea, rentalCost, maximumPerson, rentalType);
-        freeServiceIncluded = freeServiceIncluded;
+        this.freeServiceIncluded = freeServiceIncluded;
     }
 
     @Override
     public String toString() {
-        return "Room{" +
-                "freeServiceIncluded='" + freeServiceIncluded + '\'' +
+        return "Room{" + super.toString()+
+                ", freeServiceIncluded='" + freeServiceIncluded + '\'' +
                 '}';
     }
 }

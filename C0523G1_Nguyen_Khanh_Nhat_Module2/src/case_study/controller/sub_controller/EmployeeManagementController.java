@@ -1,6 +1,6 @@
 package case_study.controller.sub_controller;
 
-import case_study.common.Validate;
+import case_study.common.InputAndCheckPerson;
 import case_study.service.sub_service.impl.EmployeeService;
 
 
@@ -18,7 +18,7 @@ public class EmployeeManagementController {
             System.out.println("5. Search by name employee");
             System.out.println("6. Return main menu");
             System.out.print("Enter your selection: ");
-            selectEmployee = Validate.checkSelection(6);
+            selectEmployee = InputAndCheckPerson.checkSelection(6);
 
             switch (selectEmployee){
                 case 1:

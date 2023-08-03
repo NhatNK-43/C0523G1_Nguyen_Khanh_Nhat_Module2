@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import java.util.Scanner;
 
 
-public class Validate {
+public class InputAndCheckPerson {
     static final String REGEX_DATE = "^\\d{2}/\\d{2}/\\d{4}$";
     static final String REGEX_NAME = "^([A-Z][a-z]*)(\\s[A-Z][a-z]*)*$";
     static final String REGEX_ID_CARD = "^\\d{9}$|^\\d{12}$";
@@ -13,7 +13,7 @@ public class Validate {
     static final String REGEX_EMAIL = "^[a-zA-Z0-9.]{6,30}+@[a-zA-Z]+\\.[a-zA-Z]+$";
     static final String REGEX_ADDRESS = "^[a-zA-Z0-9-,.\\s]+$";
 
-    public static boolean checkId(String id, String regexId) {
+    public static boolean inputAndCheckId(String id, String regexId) {
         return id.matches(regexId);
     }
 
@@ -37,7 +37,7 @@ public class Validate {
         } while (checkSelection);
         return select;
     }
-    public static String checkName() {
+    public static String inputAndCheckName() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Name: ");
         String name;
@@ -53,7 +53,7 @@ public class Validate {
         } while (true);
     }
 
-    public static LocalDate checkDate() {
+    public static LocalDate inputAndCheckDate() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Date of birth (dd/mm/yyyy): ");
         String date;
@@ -79,7 +79,7 @@ public class Validate {
         } while (true);
     }
 
-    public static String checkGender() {
+    public static String inputAndCheckGender() {
         String gender = "";
         int select;
 
@@ -100,7 +100,7 @@ public class Validate {
         return gender;
     }
 
-    public static String checkIdCard() {
+    public static String inputAndCheckIdCard() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("ID Card: ");
         String idCard;
@@ -115,7 +115,7 @@ public class Validate {
         } while (true);
     }
 
-    public static String checkPhoneNumber() {
+    public static String inputAndCheckPhoneNumber() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Phone number (0XXXXXXXXXX): ");
         String phoneNumber;
@@ -130,7 +130,7 @@ public class Validate {
         } while (true);
     }
 
-    public static String checkEmail() {
+    public static String inputAndCheckEmail() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Email: ");
         String phoneNumber;
@@ -145,7 +145,7 @@ public class Validate {
         } while (true);
     }
 
-    public static String checkLiteracy() {
+    public static String inputAndCheckLiteracy() {
         System.out.println("Literacy: ");
         System.out.println("\t1. Intermediate");
         System.out.println("\t2. College");
@@ -171,7 +171,7 @@ public class Validate {
         return literacy;
     }
 
-    public static String checkPosition() {
+    public static String inputAndCheckPosition() {
         System.out.println("Position: ");
         System.out.println("\t1. Receptionist");
         System.out.println("\t2. Staff");
@@ -205,24 +205,21 @@ public class Validate {
         return position;
     }
 
-    public static double checkSalary() {
+    public static double inputAndCheckSalary() {
         Scanner scanner = new Scanner(System.in);
-        double salary = 0.0;
-        boolean flag;
+        double salary;
         System.out.print("Salary: ");
         do {
-            flag = false;
             try {
                 salary = Double.parseDouble(scanner.nextLine());
+                return salary;
             } catch (NumberFormatException e) {
                 System.out.print("The character you entered is not a number! Please re-enter: ");
-                flag = true;
             }
-        } while (flag);
-        return salary;
+        } while (true);
     }
 
-    public static String checkCustomerType() {
+    public static String inputAndCheckCustomerType() {
         System.out.println("Customer type: ");
         System.out.println("\t1. Diamond");
         System.out.println("\t2. Platinum");
@@ -255,7 +252,7 @@ public class Validate {
         return customerType;
     }
 
-    public static String checkAddress(){
+    public static String inputAndCheckAddress(){
         Scanner scanner = new Scanner(System.in);
         System.out.print("Address: ");
         String address;

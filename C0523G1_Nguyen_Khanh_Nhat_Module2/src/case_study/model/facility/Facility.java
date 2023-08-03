@@ -1,19 +1,19 @@
 package case_study.model.facility;
 
-public abstract class Facility {
-    private String serviceID;
+public class Facility {
+    private String serviceId;
     private String serviceName;
-    private String usableArea;
-    private String rentalCosts;
-    private String maximumPerson;
+    private double usableArea;
+    private double rentalCosts;
+    private int numberOfPeople;
     private String rentalType;
 
     public String getServiceID() {
-        return serviceID;
+        return serviceId;
     }
 
-    public void setServiceID(String serviceID) {
-        this.serviceID = serviceID;
+    public void setServiceId(String serviceId) {
+        this.serviceId = serviceId;
     }
 
     public String getServiceName() {
@@ -24,28 +24,28 @@ public abstract class Facility {
         this.serviceName = serviceName;
     }
 
-    public String getUsableArea() {
+    public double getUsableArea() {
         return usableArea;
     }
 
-    public void setUsableArea(String usableArea) {
+    public void setUsableArea(double usableArea) {
         this.usableArea = usableArea;
     }
 
-    public String getRentalCost() {
+    public double getRentalCost() {
         return rentalCosts;
     }
 
-    public void setRentalCost(String rentalCost) {
+    public void setRentalCost(double rentalCost) {
         this.rentalCosts = rentalCost;
     }
 
-    public String getMaximumPerson() {
-        return maximumPerson;
+    public int getNumberOfPeople() {
+        return numberOfPeople;
     }
 
-    public void setMaximumPerson(String maximumPerson) {
-        this.maximumPerson = maximumPerson;
+    public void setNumberOfPeople(int numberOfPeople) {
+        this.numberOfPeople = numberOfPeople;
     }
 
     public String getRentalType() {
@@ -59,24 +59,41 @@ public abstract class Facility {
     public Facility() {
     }
 
-    public Facility(String serviceID, String serviceName, String usableArea, String rentalCost, String maximumPerson, String rentalType) {
-        this.serviceID = serviceID;
+    public Facility(String serviceId) {
+        this.serviceId = serviceId;
+    }
+
+    public Facility(String serviceId, String serviceName, double usableArea, double rentalCost, int numberOfPeople, String rentalType) {
+        this.serviceId = serviceId;
         this.serviceName = serviceName;
         this.usableArea = usableArea;
         this.rentalCosts = rentalCost;
-        this.maximumPerson = maximumPerson;
+        this.numberOfPeople = numberOfPeople;
         this.rentalType = rentalType;
     }
 
     @Override
     public String toString() {
-        return "Facility{" +
-                "serviceID='" + serviceID + '\'' +
+        return "serviceId='" + serviceId + '\'' +
                 ", serviceName='" + serviceName + '\'' +
                 ", usableArea='" + usableArea + '\'' +
                 ", rentalCost='" + rentalCosts + '\'' +
-                ", maximumPerson='" + maximumPerson + '\'' +
-                ", rentalType='" + rentalType + '\'' +
-                '}';
+                ", numberOfPeople='" + numberOfPeople + '\'' +
+                ", rentalType='" + rentalType + '\'';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Facility)) return false;
+
+        Facility facility = (Facility) o;
+
+        return serviceId.equals(facility.serviceId);
+    }
+
+    @Override
+    public int hashCode() {
+        return serviceId != null ? serviceId.hashCode() : 0;
     }
 }

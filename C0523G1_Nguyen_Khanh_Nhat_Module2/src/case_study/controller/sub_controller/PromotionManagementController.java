@@ -1,6 +1,6 @@
 package case_study.controller.sub_controller;
 
-import case_study.common.Validate;
+import case_study.common.InputAndCheckPerson;
 
 public class PromotionManagementController {
     public static void promotionManagement(){
@@ -12,7 +12,7 @@ public class PromotionManagementController {
             System.out.println("2. Display list customer get voucher");
             System.out.println("3. Return main menu");
             System.out.print("Enter your selection: ");
-            selectPromotion = Validate.checkSelection(3);
+            selectPromotion = InputAndCheckPerson.checkSelection(3);
 
             switch (selectPromotion){
                 case 1:

@@ -1,6 +1,6 @@
 package case_study.controller;
 
-import case_study.common.Validate;
+import case_study.common.InputAndCheckPerson;
 
 
 import static case_study.controller.sub_controller.BookingManagementController.bookingManagement;
@@ -21,7 +21,7 @@ public class FuramaController {
             System.out.println("5. Promotion Management");
             System.out.println("6. Exit");
             System.out.print("Enter your selection: ");
-            select = Validate.checkSelection(6);
+            select = InputAndCheckPerson.checkSelection(6);
 
             switch (select) {
                 case 1:
